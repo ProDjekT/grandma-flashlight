@@ -9,7 +9,7 @@ A simple Android app: one full-screen button toggles the device flashlight on an
 
 ## CI
 
-On each push to `master`, GitHub Actions runs tests and builds the debug APK (using `gradle/actions/setup-gradle` and the Android SDK setup action; SDK location is set via `local.properties`). The APK is available as an artifact of the workflow run (Actions → select run → Artifacts → app-debug).
+On each push to `master`, GitHub Actions runs tests and builds the debug APK (Gradle + Android SDK; SDK path set via job env and `local.properties`). The APK is available as an artifact of the workflow run (Actions → select run → Artifacts → app-debug).
 
 ## Requirements
 
