@@ -2,6 +2,7 @@ package com.example.grandmaflashlight
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
 import android.os.Bundle
@@ -86,10 +87,10 @@ class MainActivity : AppCompatActivity() {
     private fun updateButtonState(button: Button) {
         if (torchOn) {
             button.text = getString(R.string.tap_to_turn_off)
-            button.setBackgroundColor(ContextCompat.getColor(this, R.color.screen_on))
+            button.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.screen_on))
         } else {
             button.text = getString(R.string.tap_to_turn_on)
-            button.setBackgroundColor(ContextCompat.getColor(this, R.color.screen_off))
+            button.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.screen_off))
         }
     }
 

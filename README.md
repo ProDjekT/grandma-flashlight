@@ -1,6 +1,6 @@
 # Grandma Flashlight
 
-A simple Android app: one full-screen button toggles the device flashlight on and off. Button shows «Включить фонарик» when off and «Выключить фонарик» when on (Russian UI, large text). Screen is light blue when the flashlight is off and yellow when on; text is black.
+A simple Android app: one full-screen button toggles the device flashlight on and off. Button shows «Включить фонарик» when off and «Выключить фонарик» when on (Russian UI, large text). Button is light blue when the flashlight is off and yellow when on; label text is black.
 
 ## Build and run
 
