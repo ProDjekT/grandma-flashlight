@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:background="@color/screen_off"
         android:text="@string/tap_to_turn_on"
-        android:textColor="@color/on_primary"
+        android:textColor="@color/button_text"
         android:textSize="32sp" />
 
 </FrameLayout>

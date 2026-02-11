@@ -4,19 +4,24 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    <!-- Light beam (warm yellow) -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M54,22 L68,48 L62,48 L62,58 L46,58 L46,48 L40,48 Z" />
+    <!-- Flashlight head / reflector -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,40c-7.7,0 -14,6.3 -14,14s6.3,14 14,14 14,-6.3 14,-14 -6.3,-14 -14,-14zM54,62c-4.4,0 -8,-3.6 -8,-8s3.6,-8 8,-8 8,3.6 8,8 -3.6,8 -8,8z" />
+        android:pathData="M38,48 L70,48 Q72,52 70,56 L38,56 Q36,52 38,48 Z" />
+    <!-- Flashlight body -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,34L54,34c2.2,0 4,1.8 4,4v4c0,2.2 -1.8,4 -4,4h0c-2.2,0 -4,-1.8 -4,-4v-4C50,35.8 51.8,34 54,34z" />
+        android:pathData="M42,56 L42,72 Q42,76 46,76 L62,76 Q66,76 66,72 L66,56 Z" />
+    <!-- Grip line -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M54,70L54,70c2.2,0 4,1.8 4,4v4c0,2.2 -1.8,4 -4,4h0c-2.2,0 -4,-1.8 -4,-4v-4C50,71.8 51.8,70 54,70z" />
+        android:fillColor="#E0E0E0"
+        android:pathData="M46,62 L62,62 L62,64 L46,64 Z" />
+    <!-- Power button -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M38,54L38,54c0,2.2 1.8,4 4,4h4c2.2,0 4,-1.8 4,-4v0c0,-2.2 -1.8,-4 -4,-4h-4C39.8,50 38,51.8 38,54z" />
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M62,54L62,54c0,2.2 1.8,4 4,4h4c2.2,0 4,-1.8 4,-4v0c0,-2.2 -1.8,-4 -4,-4h-4C63.8,50 62,51.8 62,54z" />
+        android:fillColor="#6200EE"
+        android:pathData="M54,66 m-3,0 a3,3 0 1,1 6,0 a3,3 0 1,1 -6,0" />
 </vector>

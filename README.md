@@ -1,6 +1,6 @@
 # Grandma Flashlight
 
-A simple Android app: one full-screen button toggles the device flashlight on and off. Button shows «Включить фонарик» when off and «Выключить фонарик» when on (Russian UI, large text).
+A simple Android app: one full-screen button toggles the device flashlight on and off. Button shows «Включить фонарик» when off and «Выключить фонарик» when on (Russian UI, large text). Screen is light blue when the flashlight is off and yellow when on; text is black.
 
 ## Build and run
 
@@ -9,7 +9,11 @@ A simple Android app: one full-screen button toggles the device flashlight on an
 
 ## CI
 
-On each push to `master`, GitHub Actions runs tests and builds the debug APK (Gradle + Android SDK; SDK path set via job env and `local.properties`). The APK is available as an artifact of the workflow run (Actions → select run → Artifacts → app-debug).
+On each push to `master`, GitHub Actions runs tests and builds the debug APK (Gradle + Android SDK; SDK path set via job env and `local.properties`). The APK is available as an artifact named **Grandma-Flashlight** (Actions → select run → Artifacts → Grandma-Flashlight).
+
+## App icon
+
+The launcher icon is a vector flashlight (beam, body, power button) in the app’s drawable resources.
 
 ## Requirements
 
