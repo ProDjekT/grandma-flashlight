@@ -7,6 +7,10 @@ A simple Android app: one full-screen button toggles the device flashlight on an
 - **Android Studio**: Open this folder as a project. Sync Gradle, then Run on a device or emulator (device must have a flash).
 - **Command line**: From the project root, run `./gradlew assembleDebug` (or `gradlew.bat assembleDebug` on Windows). If the wrapper is missing, open the project in Android Studio once to generate it, or install [Gradle](https://gradle.org/install/) and run `gradle wrapper`.
 
+## CI
+
+On each push to `master`, GitHub Actions runs tests and builds the debug APK. The APK is available as an artifact of the workflow run (Actions → select run → Artifacts → app-debug).
+
 ## Requirements
 
 - Android 7.0 (API 24) or higher
