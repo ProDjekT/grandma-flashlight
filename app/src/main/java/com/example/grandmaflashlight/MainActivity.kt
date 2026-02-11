@@ -3,7 +3,6 @@ package com.example.grandmaflashlight
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
-import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.widget.Button
@@ -16,7 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var cameraManager: CameraManager
     private var cameraIdWithFlash: String? = null
-    private var torchOn: Boolean = false
+    private var torchOn: Boolean
+        get() = FlashlightHelper.getTorchState(this)
+        set(value) { FlashlightHelper.setTorchState(this, value) }
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
-        cameraIdWithFlash = findCameraIdWithFlash()
+        cameraIdWithFlash = FlashlightHelper.findCameraIdWithFlash(this)
 
         val button = findViewById<Button>(R.id.button_flashlight)
 
@@ -54,17 +55,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun findCameraIdWithFlash(): String? {
-        return try {
-            cameraManager.cameraIdList.firstOrNull { id ->
-                val characteristics = cameraManager.getCameraCharacteristics(id)
-                characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE) == true
-            }
-        } catch (e: Exception) {
-            null
-        }
-    }
-
     private fun enableFlashlightButton() {
         val button = findViewById<Button>(R.id.button_flashlight)
         button.isEnabled = true
@@ -74,12 +64,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun toggleFlashlight() {
         val id = cameraIdWithFlash ?: return
-        torchOn = !torchOn
+        val newState = !torchOn
         try {
-            cameraManager.setTorchMode(id, torchOn)
+            cameraManager.setTorchMode(id, newState)
+            FlashlightHelper.setTorchState(this, newState)
             updateButtonState(findViewById(R.id.button_flashlight))
         } catch (e: Exception) {
-            torchOn = !torchOn
             Toast.makeText(this, R.string.camera_permission_required, Toast.LENGTH_SHORT).show()
         }
     }
@@ -96,11 +86,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        cameraIdWithFlash?.let { id ->
-            try {
-                cameraManager.setTorchMode(id, false)
-                torchOn = false
-            } catch (_: Exception) { }
-        }
+        FlashlightHelper.setTorch(this, false)
     }
 }
