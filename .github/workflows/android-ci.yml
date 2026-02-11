@@ -29,11 +29,15 @@ jobs:
           gradle-version: 8.2
           validate-wrappers: false
 
+      - name: Set SDK location
+        run: |
+          echo "sdk.dir=$HOME/.android/sdk" >> local.properties
+
       - name: Run unit tests and build APK
         run: gradle test assembleDebug --no-daemon
         env:
-          ANDROID_HOME: ${{ runner.home }}/.android/sdk
-          ANDROID_SDK_ROOT: ${{ runner.home }}/.android/sdk
+          ANDROID_HOME: ${{ env.HOME }}/.android/sdk
+          ANDROID_SDK_ROOT: ${{ env.HOME }}/.android/sdk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
